@@ -17,7 +17,7 @@ export const projects: PortfolioProject[] = [
       "App educativa sobre arquitectura MicroFrontend con Module Federation y un Color Picker desacoplado consumido por una app host.",
     stack: ["Webpack", "Module Federation", "React"],
     status: "active",
-    href: "https://microfrontend-colors.vercel.app",
+    href: "https://host-mf-colors-app.netlify.app/",
     accentFrom: "#06b6d4",
     accentTo: "#6366f1"
   },
