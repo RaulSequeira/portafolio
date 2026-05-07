@@ -57,6 +57,17 @@ export const projects: PortfolioProject[] = [
     accentTo: "#f59e0b"
   },
   {
+    title: "Product Comparison API",
+    description:
+      "API RESTful para consulta y comparación de productos con endpoints para recuperar especificaciones, precios y calificaciones.",
+    stack: ["Java", "Spring Boot", "JPA/Hibernate", "JWT", "REST API", "OpenAPI"],
+    status: "active",
+    href: "https://api-productos-1mxs.onrender.com/swagger-ui/index.html#/",
+    previewImage: "/projects/Product Comparison API.png",
+    accentFrom: "#10b981",
+    accentTo: "#3b82f6"
+  },
+  {
     title: "MicroFrontend Tasks",
     description:
       "Gestion de tareas modular basada en MicroFrontend, con dominios separados y despliegue independiente.",
@@ -64,14 +75,5 @@ export const projects: PortfolioProject[] = [
     status: "in-development",
     accentFrom: "#71717a",
     accentTo: "#3f3f46"
-  },
-  {
-    title: "Club Members Manager",
-    description:
-      "Panel para administrar socios de club de futbol con altas, bajas, categorias y seguimiento administrativo.",
-    stack: ["Dashboard", "CRUD", "Management"],
-    status: "in-development",
-    accentFrom: "#52525b",
-    accentTo: "#27272a"
   }
 ];

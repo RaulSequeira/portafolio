@@ -59,22 +59,6 @@ export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProp
             />
           </>
         ) : null}
-        <div className="absolute right-3 top-3 rounded-full border border-zinc-400/30 bg-zinc-900/65 px-3 py-1">
-          <ScrambleText
-            as="span"
-            text={isActive ? "Activo" : "En desarrollo"}
-            trigger={scrambleTrigger}
-            className="text-xs font-medium tracking-wide text-zinc-200"
-          />
-        </div>
-        <div className="absolute bottom-3 left-3">
-          <ScrambleText
-            as="span"
-            text="Full Stack Project"
-            trigger={scrambleTrigger}
-            className="text-sm font-medium text-zinc-200/90"
-          />
-        </div>
       </div>
 
       <ScrambleText
