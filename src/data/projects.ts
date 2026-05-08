@@ -68,10 +68,10 @@ export const projects: PortfolioProject[] = [
     accentTo: "#3b82f6"
   },
   {
-    title: "MicroFrontend Tasks",
+    title: "SaaS-Boilerplate",
     description:
-      "Gestion de tareas modular basada en MicroFrontend, con dominios separados y despliegue independiente.",
-    stack: ["MicroFrontend", "Module Federation", "Tasks"],
+      "Starter kit de producción para aplicaciones SaaS con autenticación JWT completa e integración de pagos con Mercado Pago Argentina",
+    stack: ["Next.js", "Springboot", "JPA/Hibernate", "JWT"],
     status: "in-development",
     accentFrom: "#71717a",
     accentTo: "#3f3f46"
