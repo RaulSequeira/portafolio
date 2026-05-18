@@ -101,9 +101,30 @@ body {
   animation-delay: 6.5s;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wave-layer {
     animation: none;
     opacity: 0;
+  }
+
+  .animate-marquee {
+    animation: none;
   }
 }

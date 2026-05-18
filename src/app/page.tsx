@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { ScrambleText } from "@/components/scramble-title";
+import { TechStack } from "@/components/tech-stack";
+import { Footer } from "@/components/footer";
 import { projects } from "@/data/projects";
 
 const SCRAMBLE_STORAGE_KEY = "portfolio-intro-scramble-played-v1";
@@ -20,6 +22,7 @@ export default function Home() {
   }, []);
 
   return (
+    <>
     <main className="relative isolate min-h-screen overflow-x-hidden px-5 pb-20 pt-16 sm:px-8 lg:px-14">
       <div className="pointer-events-none fixed inset-0 -z-20 overflow-hidden" aria-hidden="true">
         <div className="wave-layer wave-layer-primary" />
@@ -82,6 +85,11 @@ export default function Home() {
           />
         ))}
       </section>
+
+      <TechStack />
     </main>
+
+    <Footer />
+    </>
   );
 }
