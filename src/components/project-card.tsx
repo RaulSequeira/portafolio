@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ScrambleText } from "@/components/scramble-title";
 import type { PortfolioProject } from "@/data/projects";
+import { useLang } from "@/contexts/language-context";
 
 interface ProjectCardProps {
   project: PortfolioProject;
@@ -12,6 +13,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProps) {
+  const { lang, t } = useLang();
   const isActive = project.status === "active";
 
   const visualStyle = isActive
@@ -70,7 +72,7 @@ export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProp
 
       <ScrambleText
         as="p"
-        text={project.description}
+        text={project.description[lang]}
         trigger={scrambleTrigger}
         className="mt-3 text-sm leading-relaxed text-zinc-300"
       />
@@ -90,7 +92,7 @@ export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProp
       <div className="mt-6 text-sm font-medium">
         <ScrambleText
           as="span"
-          text={isActive ? "Ver demo ->" : "Proximamente"}
+          text={isActive ? t.projects.viewDemo : t.projects.comingSoon}
           trigger={scrambleTrigger}
           className={isActive ? "text-cyan-300" : "text-zinc-400"}
         />
@@ -120,7 +122,7 @@ export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProp
       <div className={contentClasses}>{inner}</div>
       <div className="absolute inset-0 z-20 flex items-center justify-center rounded-2xl bg-zinc-950/55 backdrop-blur-[2.8px]">
         <span className="rounded-full border border-zinc-500/70 bg-zinc-900/85 px-6 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-zinc-200 shadow-[0_0_30px_rgba(161,161,170,0.28)]">
-          Próximamente
+          {t.projects.comingSoon}
         </span>
       </div>
     </motion.div>

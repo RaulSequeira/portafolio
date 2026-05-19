@@ -1,26 +1,31 @@
+"use client";
+
+import { useLang } from "@/contexts/language-context";
+
 export function Footer() {
+  const { t } = useLang();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 border-t border-zinc-800/60">
+    <footer id="contacto" className="mt-20 scroll-mt-16 border-t border-zinc-800/60">
       <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 lg:px-14">
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <div className="flex flex-col items-center gap-1 sm:items-start">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <div className="flex flex-1 flex-col items-center gap-1 sm:items-start">
             <span className="text-sm font-semibold tracking-wide text-zinc-200">
               Raúl Sequeira
             </span>
             <span className="text-xs text-zinc-500">
-              Desarrollador Full Stack
+              {t.footer.role}
             </span>
           </div>
 
-          <p className="text-center text-xs text-zinc-600">
-            Diseñado y desarrollado por{" "}
+          <p className="flex-1 text-center text-xs text-zinc-600">
+            {t.footer.designedBy}{" "}
             <span className="font-medium text-zinc-400">Raúl Sequeira</span>
             {" "}· {year}
           </p>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-1 items-center justify-center gap-5 sm:justify-end">
             <a
               href="https://www.linkedin.com/in/raul-alejandro-sequeira/"
               target="_blank"
@@ -49,7 +54,7 @@ export function Footer() {
 
         <div className="mt-6 border-t border-zinc-800/40 pt-6 text-center">
           <p className="text-[11px] text-zinc-700">
-            Construido con{" "}
+            {t.footer.builtWith}{" "}
             <span className="text-zinc-500">Next.js · React · Tailwind CSS · TypeScript</span>
           </p>
         </div>

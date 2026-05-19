@@ -2,7 +2,7 @@ export type ProjectStatus = "active" | "in-development";
 
 export interface PortfolioProject {
   title: string;
-  description: string;
+  description: { es: string; en: string };
   stack: string[];
   status: ProjectStatus;
   href?: string;
@@ -14,8 +14,10 @@ export interface PortfolioProject {
 export const projects: PortfolioProject[] = [
   {
     title: "MicroFrontend Colors",
-    description:
-      "App educativa sobre arquitectura MicroFrontend con Module Federation y un Color Picker desacoplado consumido por una app host.",
+    description: {
+      es: "App educativa sobre arquitectura MicroFrontend con Module Federation y un Color Picker desacoplado consumido por una app host.",
+      en: "Educational app on Micro Frontend architecture with Module Federation and a decoupled Color Picker consumed by a host app.",
+    },
     stack: ["Webpack", "Module Federation", "React"],
     status: "active",
     href: "https://host-mf-colors-app.netlify.app/",
@@ -25,8 +27,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     title: "React Redux Tasks",
-    description:
-      "CRUD de tareas centrado en reducers sincronicos, acciones limpias y manejo de estado predecible en Redux.",
+    description: {
+      es: "CRUD de tareas centrado en reducers sincronicos, acciones limpias y manejo de estado predecible en Redux.",
+      en: "Task CRUD focused on synchronous reducers, clean actions and predictable Redux state management.",
+    },
     stack: ["React", "Redux", "TypeScript"],
     status: "active",
     href: "https://react-redux-app-v1.netlify.app/",
@@ -36,8 +40,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     title: "E-commerce Vanilla",
-    description:
-      "Tienda online construida con HTML5, CSS3 y JavaScript puro, enfocada en rendimiento y UX ligera.",
+    description: {
+      es: "Tienda online construida con HTML5, CSS3 y JavaScript puro, enfocada en rendimiento y UX ligera.",
+      en: "Online store built with HTML5, CSS3 and vanilla JavaScript, focused on performance and lightweight UX.",
+    },
     stack: ["HTML5", "CSS3", "JavaScript"],
     status: "active",
     href: "https://fresquito-app.netlify.app/",
@@ -47,8 +53,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     title: "Cocktail Explorer",
-    description:
-      "Explorador de cocteles con filtros avanzados, busquedas por ingredientes y descubrimiento visual de recetas.",
+    description: {
+      es: "Explorador de cocteles con filtros avanzados, busquedas por ingredientes y descubrimiento visual de recetas.",
+      en: "Cocktail browser with advanced filters, ingredient search and visual recipe discovery.",
+    },
     stack: ["React", "API Integration", "Filters UX"],
     status: "active",
     href: "https://cocktailstudio.netlify.app/",
@@ -58,8 +66,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     title: "Product Comparison API",
-    description:
-      "API RESTful para consulta y comparación de productos con endpoints para recuperar especificaciones, precios y calificaciones.",
+    description: {
+      es: "API RESTful para consulta y comparación de productos con endpoints para recuperar especificaciones, precios y calificaciones.",
+      en: "RESTful API for product query and comparison with endpoints for retrieving specifications, prices and ratings.",
+    },
     stack: ["Java", "Spring Boot", "JPA/Hibernate", "JWT", "REST API", "OpenAPI"],
     status: "active",
     href: "https://api-productos-1mxs.onrender.com/swagger-ui/index.html#/",
@@ -69,8 +79,10 @@ export const projects: PortfolioProject[] = [
   },
   {
     title: "SaaS-Boilerplate",
-    description:
-      "Starter kit de producción para aplicaciones SaaS con autenticación JWT completa e integración de pagos con Mercado Pago Argentina",
+    description: {
+      es: "Starter kit de producción para aplicaciones SaaS con autenticación JWT completa e integración de pagos con Mercado Pago Argentina.",
+      en: "Production starter kit for SaaS applications with complete JWT authentication and Mercado Pago Argentina payment integration.",
+    },
     stack: ["Next.js", "Springboot", "JPA/Hibernate", "JWT"],
     status: "in-development",
     accentFrom: "#71717a",

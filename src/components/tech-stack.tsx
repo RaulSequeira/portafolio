@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLang } from "@/contexts/language-context";
 
 type Tech = {
   name: string;
@@ -119,15 +122,47 @@ const techs: Tech[] = [
       </svg>
     ),
   },
+  {
+    name: "TypeScript",
+    color: "#3178C6",
+    icon: (
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10">
+        <rect width="100" height="100" rx="8" fill="#3178C6"/>
+        <text x="50" y="68" textAnchor="middle" fill="white" fontSize="46" fontFamily="monospace" fontWeight="bold">TS</text>
+      </svg>
+    ),
+  },
+  {
+    name: "PostgreSQL",
+    color: "#336791",
+    icon: (
+      <Image src="/projects/postgres.png" alt="PostgreSQL" width={40} height={40} className="h-10 w-10 object-contain" />
+    ),
+  },
+  {
+    name: "AWS",
+    color: "#FF9900",
+    icon: (
+      <Image src="/projects/aws.png" alt="AWS" width={40} height={40} className="h-10 w-10 object-contain" />
+    ),
+  },
+  {
+    name: "Jenkins",
+    color: "#D33833",
+    icon: (
+      <Image src="/projects/jenkins.png" alt="Jenkins" width={40} height={40} className="h-10 w-10 object-contain" />
+    ),
+  },
 ];
 
 const duplicated = [...techs, ...techs];
 
 export function TechStack() {
+  const { t } = useLang();
   return (
     <section className="mx-auto mt-20 w-full max-w-6xl">
       <h2 className="mb-8 text-center text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
-        Tecnologías &amp; Herramientas
+        {t.techStack.title}
       </h2>
 
       <div className="relative overflow-hidden">

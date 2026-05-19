@@ -118,6 +118,16 @@ body {
   animation-play-state: paused;
 }
 
+@keyframes star-twinkle-a {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
+@keyframes star-twinkle-b {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wave-layer {
     animation: none;
