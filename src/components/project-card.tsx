@@ -109,9 +109,18 @@ export function ProjectCard({ project, index, scrambleTrigger }: ProjectCardProp
     className: cardClasses
   };
 
+  const trackEvent = (name: string, params?: Record<string, string>) =>
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", name, params);
+
   if (isActive && project.href) {
     return (
-      <motion.a {...motionProps} href={project.href} target="_blank" rel="noreferrer">
+      <motion.a
+        {...motionProps}
+        href={project.href}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => trackEvent("project_click", { project_name: project.title })}
+      >
         <div className={contentClasses}>{inner}</div>
       </motion.a>
     );

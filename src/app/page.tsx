@@ -35,6 +35,9 @@ const OCEAN_BUBBLES: ReadonlyArray<{
   { left: "57%", size: 42,  blur: 13, delay: "20s",  dur: "30s" },
 ];
 
+const trackEvent = (name: string, params?: Record<string, string>) =>
+  (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", name, params);
+
 export default function Home() {
   const [scrambleTrigger, setScrambleTrigger] = useState(0);
   const { lang, t } = useLang();
@@ -99,6 +102,7 @@ export default function Home() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
               href="/api/cv"
+              onClick={() => trackEvent("download_cv", { event_category: "engagement" })}
               className="group inline-flex items-center justify-center rounded-xl border border-cyan-300/35 bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-indigo-500/20 px-5 py-2.5 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-200/60 hover:shadow-[0_0_35px_rgba(56,189,248,0.35)]"
             >
               {t.hero.downloadCV}
@@ -108,6 +112,7 @@ export default function Home() {
             </a>
             <a
               href="#proyectos"
+              onClick={() => trackEvent("view_projects")}
               className="inline-flex items-center justify-center rounded-xl border border-zinc-700/90 bg-zinc-900/70 px-5 py-2.5 text-sm font-medium text-zinc-200 transition-colors duration-300 hover:border-zinc-500 hover:text-zinc-100"
             >
               {t.hero.viewProjects}
@@ -120,6 +125,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                onClick={() => trackEvent("social_click", { platform: "github" })}
                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-700/80 bg-zinc-900/60 text-zinc-400 transition-all duration-200 hover:border-zinc-500 hover:text-zinc-100"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
@@ -131,6 +137,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                onClick={() => trackEvent("social_click", { platform: "linkedin" })}
                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-700/80 bg-zinc-900/60 text-zinc-400 transition-all duration-200 hover:border-cyan-400/50 hover:text-cyan-400"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
@@ -245,6 +252,7 @@ export default function Home() {
           </p>
           <a
             href={`mailto:raul.sequeira96@gmail.com?subject=${encodeURIComponent("Contacto desde tu Portfolio ✨")}&body=${encodeURIComponent("Hola Raúl,\n\nMe pongo en contacto desde tu portfolio.\n\n")}`}
+            onClick={() => trackEvent("contact_click")}
             className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/35 bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-indigo-500/20 px-6 py-3 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-200/60 hover:shadow-[0_0_35px_rgba(56,189,248,0.35)]"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

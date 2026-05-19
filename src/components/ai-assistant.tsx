@@ -29,10 +29,14 @@ export function AIAssistant() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const trackEvent = (name: string, params?: Record<string, string>) =>
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", name, params);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!message.trim() || loading) return;
 
+    trackEvent("ai_assistant_query");
     setLoading(true);
     setError("");
     setResponse("");
