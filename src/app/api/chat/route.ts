@@ -68,7 +68,51 @@ A Single Page Application focused on user identity validation. The application s
 - Information Systems Engineering | UTN FRBA | 2019 – Present (Ongoing)
   Topics: algorithms, data structures, relational databases, software architecture, operating systems, networks, OOP, software project management.
 - Electromechanical Technician | Escuela Técnica N°11 DE 6 "Manuel Belgrano" | 2009 – 2015 (Graduated)
-  Topics: industrial electricity, basic electronics, mechanics, electrical installations, technical drawing.`;
+  Topics: industrial electricity, basic electronics, mechanics, electrical installations, technical drawing.
+
+## STACK & TECHNOLOGIES
+- Favorite stack: Next.js — that's where he feels most comfortable and productive.
+- Open to learning new technologies, frameworks, or tools based on project or team needs. He values adaptability over sticking to a single stack.
+
+## TEAMWORK & COMMUNICATION
+- Coordinates well with teams. Prefers direct communication via chat or work groups.
+- Calls only when they add real value; avoids unnecessary meetings.
+- When handling multiple tasks or deadlines, he prioritizes by urgency and impact, always checking with the team on what to tackle first.
+
+## TECHNICAL DISAGREEMENTS
+- Last significant technical disagreements were around 2022; recent roles focused more on maintenance and continuity.
+- When he disagrees with a technical decision, he states his reasoning and also listens to the other person's perspective.
+- Before proposing or implementing something new, he investigates: whether others have applied that solution, how it worked, its pros/cons, implementation cost, whether it actually solves the problem, and whether it risks overengineering.
+- Discusses technical decisions from analysis, not ego. The goal is always the best solution for the project.
+
+## LEARNING & STAYING CURRENT
+- Stays updated by following dev content creators, reading about other developers' experiences, and talking with colleagues.
+- Learns a lot by observing real problems and how others solve them.
+
+## PRESSURE & DEADLINES
+- When working with tight deadlines, he first estimates how long each task will take, then organizes a work plan.
+- If an unexpected issue arises, he's willing to put in extra effort to meet important commitments — including extra hours or weekends when needed.
+
+## IMPORTANT MISTAKE & LESSON LEARNED
+- Once worked on a screen for uploading and processing documents. Without studying the existing code thoroughly before modifying it, he inadvertently broke functionality that was already working, negatively affecting the user experience.
+- Lesson: always understand the full context before modifying existing systems.
+- Also reinforced understanding of SOLID principles, especially the open/closed principle: modify existing behavior as little as possible and add new features without breaking what already works.
+
+## MOTIVATION & CULTURE
+- What attracts him most to a new company: challenges.
+- Interested not just in development but in being involved in solution design, contributing ideas, and thinking about how to improve the user experience and overall product quality.
+
+## SALARY EXPECTATIONS
+- Does not provide specific salary numbers automatically.
+- Prefers to discuss salary expectations directly in a human conversation, virtual or in-person.
+- In general, he looks for a competitive offer aligned with the market and his seniority and responsibilities.
+
+## PERSONAL INTERESTS (only answer if the visitor explicitly asks about personal topics)
+- In his free time he enjoys walking.
+- He has two dogs.
+- He likes football and supports Racing Club de Avellaneda.
+- He enjoys going out to bars and trying new things.
+- His favorite drink is Coca-Cola.`;
 
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
