@@ -65,6 +65,12 @@ interface Translations {
     loading: string;
     errorDefault: string;
   };
+  contact: {
+    sectionLabel: string;
+    title: string;
+    description: string;
+    buttonText: string;
+  };
 }
 
 const translations: Record<Lang, Translations> = {
@@ -126,6 +132,13 @@ const translations: Record<Lang, Translations> = {
       loading: "Pensando...",
       errorDefault: "No se pudo obtener la respuesta. Intentá de nuevo.",
     },
+    contact: {
+      sectionLabel: "Contacto",
+      title: "Construyamos algo juntos",
+      description:
+        "Si tenés una idea, un proyecto o simplemente querés charlar sobre tecnología, escribime. Estoy abierto a nuevas oportunidades y colaboraciones.",
+      buttonText: "Enviar Mail",
+    },
   },
   en: {
     nav: {
@@ -184,6 +197,13 @@ const translations: Record<Lang, Translations> = {
       sendButton: "Send",
       loading: "Thinking...",
       errorDefault: "Could not get a response. Please try again.",
+    },
+    contact: {
+      sectionLabel: "Contact",
+      title: "Let's build something together",
+      description:
+        "If you have an idea, a project, or just want to talk about tech, reach out. I'm open to new opportunities and collaborations.",
+      buttonText: "Send Email",
     },
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { ExperienceCard } from "@/components/experience-card";
 import { EducationCard } from "@/components/education-card";
@@ -14,6 +15,25 @@ import { educationData } from "@/data/education";
 import { useLang } from "@/contexts/language-context";
 
 const SCRAMBLE_STORAGE_KEY = "portfolio-intro-scramble-played-v1";
+
+const OCEAN_BUBBLES: ReadonlyArray<{
+  left: string; size: number; blur: number; delay: string; dur: string;
+}> = [
+  { left: "4%",  size: 70,  blur: 22, delay: "0s",   dur: "38s" },
+  { left: "11%", size: 14,  blur: 4,  delay: "5s",   dur: "20s" },
+  { left: "19%", size: 45,  blur: 14, delay: "12s",  dur: "32s" },
+  { left: "27%", size: 9,   blur: 3,  delay: "2s",   dur: "17s" },
+  { left: "38%", size: 85,  blur: 28, delay: "18s",  dur: "44s" },
+  { left: "45%", size: 22,  blur: 7,  delay: "7s",   dur: "24s" },
+  { left: "53%", size: 35,  blur: 11, delay: "15s",  dur: "28s" },
+  { left: "62%", size: 12,  blur: 4,  delay: "3s",   dur: "19s" },
+  { left: "70%", size: 60,  blur: 20, delay: "22s",  dur: "36s" },
+  { left: "78%", size: 28,  blur: 9,  delay: "9s",   dur: "26s" },
+  { left: "86%", size: 16,  blur: 5,  delay: "1s",   dur: "21s" },
+  { left: "93%", size: 50,  blur: 16, delay: "25s",  dur: "34s" },
+  { left: "33%", size: 18,  blur: 6,  delay: "30s",  dur: "23s" },
+  { left: "57%", size: 42,  blur: 13, delay: "20s",  dur: "30s" },
+];
 
 export default function Home() {
   const [scrambleTrigger, setScrambleTrigger] = useState(0);
@@ -38,10 +58,22 @@ export default function Home() {
     <>
       <main className="relative isolate min-h-screen overflow-x-hidden pb-20 pt-20">
         <div className="pointer-events-none fixed inset-0 -z-20 overflow-hidden" aria-hidden="true">
-          <div className="wave-layer wave-layer-primary" />
-          <div className="wave-layer wave-layer-secondary" />
+          {OCEAN_BUBBLES.map((b, i) => (
+            <div
+              key={i}
+              className="ocean-bubble"
+              style={{
+                left: b.left,
+                width: b.size,
+                height: b.size,
+                bottom: -b.size,
+                filter: `blur(${b.blur}px)`,
+                animationDelay: b.delay,
+                animationDuration: b.dur,
+              } as CSSProperties}
+            />
+          ))}
         </div>
-        <div className="pointer-events-none absolute left-1/2 top-[-8rem] -z-10 h-[22rem] w-[42rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
 
         {/* Hero */}
         <section id="sobre-mi" className="mx-auto w-full max-w-6xl scroll-mt-16 px-5 sm:px-8 lg:px-14">
@@ -199,6 +231,29 @@ export default function Home() {
 
         {/* AI Assistant */}
         <AIAssistant />
+
+        {/* Contact */}
+        <section id="contacto" className="mx-auto mt-20 w-full max-w-6xl scroll-mt-16 px-5 sm:px-8 lg:px-14">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+            {t.contact.sectionLabel}
+          </p>
+          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
+            {t.contact.title}
+          </h2>
+          <p className="mb-8 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+            {t.contact.description}
+          </p>
+          <a
+            href={`mailto:raul.sequeira96@gmail.com?subject=${encodeURIComponent("Contacto desde tu Portfolio ✨")}&body=${encodeURIComponent("Hola Raúl,\n\nMe pongo en contacto desde tu portfolio.\n\n")}`}
+            className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/35 bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-indigo-500/20 px-6 py-3 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-200/60 hover:shadow-[0_0_35px_rgba(56,189,248,0.35)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            {t.contact.buttonText}
+          </a>
+        </section>
       </main>
 
       <Footer />

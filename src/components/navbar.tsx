@@ -1,14 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { useLang } from "@/contexts/language-context";
 
 export function Navbar() {
   const { lang, setLang, t } = useLang();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
     { label: t.nav.about, href: "#sobre-mi" },
-    { label: t.nav.experience, href: "#experiencia" },
     { label: t.nav.projects, href: "#proyectos" },
+    { label: t.nav.experience, href: "#experiencia" },
     { label: t.nav.education, href: "#formacion" },
     { label: t.nav.skills, href: "#habilidades" },
     { label: t.nav.aiAssistant, href: "#asistente" },
@@ -26,7 +28,7 @@ export function Navbar() {
           RS
         </a>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3">
           {/* Nav links — hidden on mobile */}
           <ul className="hidden items-center gap-4 sm:flex">
             {navLinks.map((link) => (
@@ -64,8 +66,47 @@ export function Navbar() {
               EN
             </button>
           </div>
+
+          {/* Hamburger button — visible on mobile only */}
+          <button
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-400 transition-colors hover:text-zinc-100 sm:hidden"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            )}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="border-t border-zinc-800/60 bg-zinc-950/95 backdrop-blur-md sm:hidden">
+          <ul className="flex flex-col px-5 py-3">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-3 text-sm text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }
