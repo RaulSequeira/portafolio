@@ -19,9 +19,8 @@ body {
 
 body {
   background:
-    radial-gradient(1000px 500px at 12% -8%, rgba(34, 211, 238, 0.14), transparent 55%),
-    radial-gradient(1000px 500px at 88% -6%, rgba(168, 85, 247, 0.13), transparent 52%),
-    #09090b;
+    radial-gradient(ellipse 90% 25% at 50% 0%, rgba(8, 120, 150, 0.09), transparent 55%),
+    linear-gradient(to bottom, #040d1a 0%, #020b14 35%, #010709 65%, #010508 100%);
   color: #f4f4f5;
   min-height: 100vh;
 }
@@ -44,61 +43,26 @@ body {
   animation: title-shine 0.9s linear infinite;
 }
 
-@keyframes wave-pass {
-  0%,
-  18% {
-    opacity: 0;
-    transform: translate3d(-24%, 2%, 0) scaleX(0.98);
-  }
-  30%,
-  58% {
-    opacity: 0.46;
-    transform: translate3d(10%, 0, 0) scaleX(1.06);
-  }
-  82% {
-    opacity: 0.16;
-    transform: translate3d(24%, -1%, 0) scaleX(1.1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(30%, -2%, 0) scaleX(1.12);
-  }
+@keyframes bubble-rise {
+  0%   { opacity: 0;    transform: translateY(0)       translateX(0); }
+  10%  { opacity: 0.07; }
+  40%  { transform: translateY(-38vh)  translateX(7px); }
+  65%  { transform: translateY(-63vh)  translateX(-4px); }
+  90%  { opacity: 0.07; }
+  100% { opacity: 0;    transform: translateY(-108vh)  translateX(6px); }
 }
 
-.wave-layer {
+.ocean-bubble {
   position: absolute;
-  left: -40%;
-  width: 180%;
-  border-radius: 9999px;
-  pointer-events: none;
-  filter: blur(44px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 38%,
+    rgba(56, 189, 248, 0.5),
+    rgba(14, 165, 233, 0.18) 55%,
+    transparent 100%
+  );
   will-change: transform, opacity;
-  animation: wave-pass 16s ease-in-out infinite;
-}
-
-.wave-layer-primary {
-  top: 30%;
-  height: 12rem;
-  background: linear-gradient(
-    92deg,
-    rgba(34, 211, 238, 0) 6%,
-    rgba(34, 211, 238, 0.24) 42%,
-    rgba(56, 189, 248, 0.21) 58%,
-    rgba(99, 102, 241, 0) 90%
-  );
-}
-
-.wave-layer-secondary {
-  top: 58%;
-  height: 9rem;
-  background: linear-gradient(
-    88deg,
-    rgba(14, 165, 233, 0) 12%,
-    rgba(56, 189, 248, 0.16) 46%,
-    rgba(34, 211, 238, 0.14) 60%,
-    rgba(99, 102, 241, 0) 88%
-  );
-  animation-delay: 6.5s;
+  animation: bubble-rise linear infinite;
 }
 
 @keyframes marquee {
@@ -129,7 +93,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wave-layer {
+  .ocean-bubble {
     animation: none;
     opacity: 0;
   }
